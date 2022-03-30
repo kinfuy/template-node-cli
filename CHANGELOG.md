@@ -8,7 +8,9 @@
 
 ### 🐛 Bug Fixes | Bug 修复
 
-* detail 22aa00d
+* config 3698a25
+
+
 
 
 
