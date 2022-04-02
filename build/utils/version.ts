@@ -3,8 +3,8 @@ import readline from 'readline';
 import chalk from 'chalk';
 import { resolve } from 'path';
 
-import pkg from '../../package.json';
-const pkgPaths = [resolve(__dirname, '../../package.json')];
+import pkg from '../package.json';
+const pkgPaths = [resolve(__dirname, '../package.json'),resolve(__dirname, '../../package.json')];
 
 /**
  * 修改version
