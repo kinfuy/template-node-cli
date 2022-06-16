@@ -1,10 +1,14 @@
 import { readFile, writeFile } from 'fs/promises';
 import readline from 'readline';
-import chalk from 'chalk';
 import { resolve } from 'path';
+import chalk from 'chalk';
 
-import pkg from '../package.json';
-const pkgPaths = [resolve(__dirname, '../package.json'),resolve(__dirname, '../../package.json')];
+import pkg from '../../package/package.json';
+import { enterPath, rootPath } from './path';
+const pkgPaths = [
+  resolve(enterPath, 'package.json'),
+  resolve(rootPath, 'package.json'),
+];
 
 /**
  * 修改version
@@ -38,7 +42,7 @@ const changeVersion = (version: string, source: string) => {
 const getVersion = (rl: readline.Interface): Promise<string> => {
   return new Promise((resolve) => {
     rl.question('请输入版本号：', async (version) => {
-      let reg = /^([0-9]\d|[0-9])(\.([0-9]\d|\d)){2}$/;
+      const reg = /^([0-9]\d|[0-9])(\.([0-9]\d|\d)){2}$/;
       if (reg.test(version)) {
         rl.close();
         resolve(version);
@@ -56,14 +60,17 @@ const getVersion = (rl: readline.Interface): Promise<string> => {
     output: process.stdout,
   });
 
-  rl.question(`是否需要修改(当前:${pkg.version})版本号(Y/N)：`, async (answer) => {
-    if (answer === 'Y' || answer === 'y') {
-      const version = await getVersion(rl);
-      pkgPaths.forEach((pkg) => {
-        changeVersion(version, pkg);
-      });
-    } else {
-      rl.close();
+  rl.question(
+    `是否需要修改(当前:${pkg.version})版本号(Y/N)：`,
+    async (answer) => {
+      if (answer === 'Y' || answer === 'y') {
+        const version = await getVersion(rl);
+        pkgPaths.forEach((pkg) => {
+          changeVersion(version, pkg);
+        });
+      } else {
+        rl.close();
+      }
     }
-  });
+  );
 })();
