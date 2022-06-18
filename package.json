@@ -6,7 +6,7 @@
     "build": "gulp --require sucrase/register/ts --gulpfile build/gulpfile.ts",
     "clear": "rimraf dist",
     "link": "cd dist && npm link",
-    "push": "git push gitee master && git push githup master",
+    "push": "git push gitee master && git push github master",
     "update:version": "sucrase-node build/utils/version.ts",
     "log": "conventional-changelog -p custom-config  -i CHANGELOG.md -s -n ./changelog-option.js",
     "prepare": "husky install"
@@ -22,11 +22,11 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-typescript": "^8.3.1",
+    "@types/eslint": "^8.4.3",
     "@types/gulp": "^4.0.9",
-    "@types/inquirer": "^8.2.0",
-    "@types/inquirer-autocomplete-prompt": "^1.3.3",
+    "@types/minimist": "^1.2.2",
     "@types/node": "^17.0.21",
-    "@types/shelljs": "^0.8.11",
+    "@types/prompts": "^2.0.14",
     "commitizen": "^4.1.2",
     "compare-func": "^2.0.0",
     "conventional-changelog-cli": "^2.0.34",
@@ -43,17 +43,14 @@
     "tslib": "^2.3.1",
     "typescript": "^4.6.3"
   },
-  "dependencies": {
-    "chalk": "4.1.2",
-    "commander": "^9.1.0",
-    "figlet": "^1.5.2",
-    "inquirer": "^8.2.1",
-    "ora": "^5.1.0",
-    "shelljs": "^0.8.5"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "kolorist": "^1.5.1",
+    "minimist": "^1.2.6",
+    "prompts": "^2.4.2"
   }
 }

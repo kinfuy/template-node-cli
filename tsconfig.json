@@ -10,6 +10,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["package", "typings"],
+  "include": ["package", "typings", "package/template/prettier/.eslintrc.js"],
   "exclude": ["node_modules"]
 }
+

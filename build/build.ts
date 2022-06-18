@@ -14,7 +14,7 @@ const globals = external.reduce((prev, current) => {
 
 const getBundle = async () => {
   return rollup({
-    input: resolve(__dirname, '../package/main.ts'),
+    input: resolve(__dirname, '../package/index.ts'),
     external,
     plugins: [
       nodeResolve({
@@ -33,7 +33,7 @@ export const buildBundle = async () => {
   const bundles = await getBundle();
   bundles.write({
     format: 'cjs',
-    file: '../dist/main.js',
+    file: '../dist/index.js',
     banner: '#!/usr/bin/env node',
     globals,
   });

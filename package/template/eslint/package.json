@@ -1,0 +1,22 @@
+{
+    "scripts": {
+        "lints": "npm run lint:style && npm run lint:less && npm run lint:js",
+        "lint:style": "stylelint  \"src/**/*.vue\" --custom-syntax postcss-html",
+        "lint:less": "stylelint \"src/**/*.less\" --syntax less",
+        "lint:js": "eslint -c ./.eslintrc.js --fix --ext .jsx,.js,.vue \"src/**/*.{jsx,js,vue}\" "
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "eslint": "^8.17.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-import-resolver-alias": "^1.1.2",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-vue": "^9.1.0",
+        "stylelint": "^13.12.0",
+        "stylelint-config-prettier": "^8.0.2",
+        "stylelint-config-standard": "^21.0.0",
+        "stylelint-order": "^4.1.0",
+        "stylelint-webpack-plugin": "^2.1.1"
+    }
+}

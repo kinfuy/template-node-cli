@@ -1,0 +1,22 @@
+{
+    "scripts": {
+        "log": "npm run changelog && npm run  changeissueurl",
+        "changelog": "conventional-changelog -i CHANGELOG.md -s",
+        "changeissueurl": "replace 'https://git.100credit.cn' 'http://git.100credit.cn' CHANGELOG.md",
+        "prepare": "husky install"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@commitlint/cli": "^9.1.2",
+        "@commitlint/config-conventional": "^9.1.2",
+        "conventional-changelog-cli": "^2.1.1",
+        "cz-conventional-changelog": "^3.3.0",
+        "husky": "^8.0.1",
+        "lint-staged": "^10.5.4"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
+}
