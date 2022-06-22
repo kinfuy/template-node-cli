@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'fs/promises';
 import readline from 'readline';
 import { resolve } from 'path';
-import chalk from 'chalk';
+import { green, red } from 'kolorist';
 
 import pkg from '../../package/package.json';
 import { enterPath, rootPath } from './path';
@@ -22,7 +22,7 @@ const changeVersion = (version: string, source: string) => {
       pkg.version = version;
       writeFile(source, JSON.stringify(pkg, null, 2))
         .then(() => {
-          console.log(chalk.green(`${source}文件，version更改为:${version}`));
+          console.log(green(`${source}文件，version更改为:${version}`));
         })
         .catch((err) => {
           console.error(err);
@@ -47,7 +47,7 @@ const getVersion = (rl: readline.Interface): Promise<string> => {
         rl.close();
         resolve(version);
       } else {
-        console.log(chalk.red(`请输入正确的版本号!`));
+        console.log(red(`请输入正确的版本号!`));
         resolve(await getVersion(rl));
       }
     });

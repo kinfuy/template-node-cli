@@ -7,7 +7,7 @@
   "author": "alqmc",
   "files": [
     "index.js",
-    "template-*",
+    "template",
     "README.md"
   ],
   "bin": {
