@@ -1,12 +1,13 @@
 import { resolve } from 'path';
-import { buildTypescriptLib, DefineLibConfig } from '@alqmc/build-ts';
+import { buildTypescriptLib } from '@alqmc/build-ts';
 import { enterPath, outputPath, rootPath } from './utils/path';
+import type { DefineLibConfig } from '@alqmc/build-ts';
 
 const buildConfig: DefineLibConfig = {
   baseOptions: {
     input: resolve(enterPath, 'index.ts'),
     outPutPath: outputPath,
-    enterPath: enterPath,
+    enterPath,
     pkgPath: resolve(enterPath, 'package.json'),
     tsConfigPath: resolve(rootPath, 'tsconfig.json'),
     preserveModules: false,

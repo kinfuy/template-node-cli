@@ -1,8 +1,6 @@
 {
     "scripts": {
-        "log": "npm run changelog && npm run  changeissueurl",
-        "changelog": "conventional-changelog -i CHANGELOG.md -s",
-        "changeissueurl": "replace 'https://git.100credit.cn' 'http://git.100credit.cn' CHANGELOG.md",
+        "log": "conventional-changelog -i CHANGELOG.md -s",
         "prepare": "husky install"
     },
     "dependencies": {},
